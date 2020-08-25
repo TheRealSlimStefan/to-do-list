@@ -18,18 +18,6 @@ div.container {
     transform: translate(-50%, -50%);
 }
 
-@media(max-width: 1024px) {
-    div.container {
-        width: 30vw;
-    }
-}
-
-@media(max-width: 768px) {
-    div.container {
-        width: 40vw;
-    }
-}
-
 div.container * {
     display: block;
 }
@@ -48,9 +36,9 @@ div.container h1 span {
 
 div.container input {
     width: 100%;
-    height: 5vh;
+    height: 6vh;
     min-height: 30px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 div.container input:focus {
@@ -61,7 +49,7 @@ div.container input:focus {
 
 div.container button {
     margin-top: 6px;
-    padding: 5px 0;
+    padding: 10px 0;
     border: none;
     float: left;
     cursor: pointer;
@@ -69,6 +57,7 @@ div.container button {
     background-color: white;
     border: 2px solid #B803FE;
     transition: 0.3s;
+    font-size: 18px;
 }
 
 div.container button:hover {
@@ -84,6 +73,36 @@ div.container button:nth-of-type(1) {
 div.container button:nth-of-type(2) {
     width: 40%;
     float: right;
+}
+
+@media(max-width: 1024px) {
+    div.container {
+        width: 35vw;
+    }
+
+    div.container input {
+        height: 5vh;
+        min-height: 30px;
+        margin-bottom: 8px;
+    }
+
+    div.container button {
+        font-size: 14px;
+    }
+}
+
+@media(max-width: 768px) {
+    div.container {
+        width: 40vw;
+    }
+
+    div.container input {
+        margin-bottom: 6px;
+    }
+
+    div.container button {
+        font-size: 12px;
+    }
 }
 
 .clearfix {
