@@ -10,7 +10,10 @@
     font-family: 'Lato', sans-serif;
 }
 
-div.container {
+/* Log in panel */
+
+div.logInPanel {
+    /* display: none; */
     position: fixed;
     width: 25vw;
     top: 50%;
@@ -18,36 +21,36 @@ div.container {
     transform: translate(-50%, -50%);
 }
 
-div.container * {
+div.logInPanel * {
     display: block;
 }
 
-div.container h1 {
+div.logInPanel h1 {
     padding: 25px 0;
     text-align: center;
     color: #B803FE;
 }
 
-div.container h1 span {
+div.logInPanel h1 span {
     display: inline;
     text-transform: uppercase;
     color: black;
 }
 
-div.container input {
+div.logInPanel input {
     width: 100%;
     height: 6vh;
     min-height: 30px;
     margin-bottom: 10px;
 }
 
-div.container input:focus {
+div.logInPanel input:focus {
     outline: none;
     box-shadow: 0 0 5px #B803FE;
     border: 1px solid #B803FE;
 }
 
-div.container button {
+div.logInPanel button {
     margin-top: 6px;
     padding: 10px 0;
     border: none;
@@ -58,49 +61,161 @@ div.container button {
     border: 2px solid #B803FE;
     transition: 0.3s;
     font-size: 18px;
+    outline: none;
 }
 
-div.container button:hover {
+div.logInPanel button:hover {
     color: white;
     background-color: #B803FE;
     border: 2px solid #B803FE;
 }
 
-div.container button:nth-of-type(1) {
+div.logInPanel button:focus {
+    color: white;
+    background-color: #B803FE;
+    border: 2px solid #B803FE;
+}
+
+div.logInPanel button:nth-of-type(1) {
     width: 58%;
 }
 
-div.container button:nth-of-type(2) {
+div.logInPanel button:nth-of-type(2) {
     width: 40%;
     float: right;
 }
 
 @media(max-width: 1024px) {
-    div.container {
+    div.logInPanel {
         width: 35vw;
     }
 
-    div.container input {
+    div.logInPanel input {
         height: 5vh;
         min-height: 30px;
         margin-bottom: 8px;
     }
 
-    div.container button {
+    div.logInPanel button {
         font-size: 14px;
     }
 }
 
 @media(max-width: 768px) {
-    div.container {
+    div.logInPanel {
         width: 40vw;
     }
 
-    div.container input {
+    div.logInPanel input {
         margin-bottom: 6px;
     }
 
-    div.container button {
+    div.logInPanel button {
+        font-size: 12px;
+    }
+}
+
+/* Sign up panel */
+
+div.signUpPanel {
+    display: none;
+    position: fixed;
+    width: 25vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+div.signUpPanel * {
+    display: block;
+}
+
+div.signUpPanel h1 {
+    padding: 25px 0;
+    text-align: center;
+    color: #B803FE;
+}
+
+div.signUpPanel h1 span {
+    display: inline;
+    text-transform: uppercase;
+    color: black;
+}
+
+div.signUpPanel input {
+    width: 100%;
+    height: 6vh;
+    min-height: 30px;
+    margin-bottom: 10px;
+}
+
+div.signUpPanel input:focus {
+    outline: none;
+    box-shadow: 0 0 5px #B803FE;
+    border: 1px solid #B803FE;
+}
+
+div.signUpPanel button {
+    margin-top: 6px;
+    padding: 10px 0;
+    border: none;
+    float: left;
+    cursor: pointer;
+    color: #B803FE;
+    background-color: white;
+    border: 2px solid #B803FE;
+    transition: 0.3s;
+    font-size: 18px;
+    outline: none;
+}
+
+div.signUpPanel button:hover {
+    color: white;
+    background-color: #B803FE;
+    border: 2px solid #B803FE;
+}
+
+div.signUpPanel button:focus {
+    color: white;
+    background-color: #B803FE;
+    border: 2px solid #B803FE;
+}
+
+div.signUpPanel button:nth-of-type(1) {
+    width: 58%;
+}
+
+div.signUpPanel button:nth-of-type(2) {
+    width: 40%;
+    float: right;
+}
+
+@media(max-width: 1024px) {
+    div.signUpPanel {
+        width: 35vw;
+    }
+
+    div.signUpPanel input {
+        height: 5vh;
+        min-height: 30px;
+        margin-bottom: 8px;
+    }
+
+    div.signUpPanel button {
+        font-size: 14px;
+    }
+}
+
+@media(max-width: 768px) {
+    div.signUpPanel {
+        width: 40vw;
+    }
+
+    div.signUpPanel input {
+        margin-bottom: 6px;
+    }
+
+    div.signUpPanel button {
         font-size: 12px;
     }
 }
