@@ -55,6 +55,19 @@ div.panel input:focus {
     border-bottom: 1px solid rgba(184, 3, 254, 0.8);
 }
 
+div.panel p {
+    /* height do 8vh */
+    height: 0;
+    line-height: 8vh;
+    text-align: center;
+    color: red;
+    transition: .3s;
+}
+
+div.panel p.activeP {
+    height: 8vh;
+}
+
 div.panel button {
     display: block;
     float: left;
