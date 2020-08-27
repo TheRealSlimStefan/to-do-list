@@ -56,7 +56,6 @@ div.panel input:focus {
 }
 
 div.panel p {
-    /* height do 8vh */
     height: 0;
     line-height: 8vh;
     text-align: center;
@@ -94,6 +93,102 @@ div.panel button:focus {
 
 div.panel button:nth-of-type(2) {
     float: right;
+}
+
+/* userInterface */
+
+div.userInterfacePanel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    width: 100%;
+    background-color: black;
+}
+
+div.userInterfacePanel div.container {
+    margin: 0 auto;
+    width: 85%;
+    padding: 10vh 0 4vh;
+}
+
+div.userInterfacePanel div.container div {
+    position: relative;
+}
+
+div.userInterfacePanel div.container div.button {
+    float: left;
+    width: 25%;
+    padding: 2vh 0;
+}
+
+div.userInterfacePanel div.container div.search {
+    float: right;
+    padding: 4vh 0;
+    width: 75%;
+}
+
+div.userInterfacePanel div button {
+    display: block;
+    /* margin: 0 auto; */
+    width: 10vh;
+    height: 10vh;
+    border-radius: 50%;
+    border: 2px solid #B803FE;
+    background-color: #B803FE;
+    font-size: 16px;
+    font-weight: 900;
+    color: white;
+}
+
+div.userInterfacePanel div input {
+    display: block;
+    padding: 0px 10px;
+    width: 100%;
+    height: 6vh;
+}
+
+div.userInterfacePanel div.toDoList {
+    padding: 4vh 5vw 0;
+}
+
+div.userInterfacePanel div.toDoList div.task {
+    width: 100%;
+    color: white;
+    margin-bottom: 5vh;
+}
+
+div.userInterfacePanel div.toDoList div.task div.taskHead {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border: 2px solid #B803FE;
+    padding: 2vh 2vw;
+    background-color: #B803FE;
+    font-size: 20px;
+}
+
+div.userInterfacePanel div.toDoList div.task div.taskHead div {
+    float: left;
+}
+
+div.userInterfacePanel div.toDoList div.task div.taskHead div.taskName {
+    width: 70%;
+    padding-left: 2vw;
+}
+
+div.userInterfacePanel div.toDoList div.task div.taskHead div.taskControllers {
+    width: 30%;
+    text-align: right;
+}
+
+div.userInterfacePanel div.toDoList div.task div.taskBody {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: 2px solid #B803FE;
+    border-top: none;
+    padding: 2vh 5vw 5vh;
+    background-color: rgb(245, 245, 245);
+    color: black;
 }
 
 @media(orientation: landscape) {
@@ -215,7 +310,7 @@ div.panel button:nth-of-type(2) {
 /* Sign up panel */
 
 /* clearfix */
-.clearfix {
+.clearfix::after {
     content: "";
     display: block;
     clear: both;
