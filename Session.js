@@ -12,6 +12,11 @@ class Session {
         this.cancelButtonSignUpPanel = document.querySelector('div.sign-up-panel button.cancel');
         this.signUpButtonSignUpPanel = document.querySelector('div.sign-up-panel button.signUp');
         this.pSignUpPanel = document.querySelector('div.panel.sign-up-panel p');
+        this.users = [];
+
+        for (let i = 0; i < localStorage.length; i++) {
+            this.users.push(JSON.parse(localStorage.getItem(`user_${i + 1}`)));
+        };
 
         // console.log(this.logInPanel);
         // console.log(this.logInInputLogInPanel);
@@ -41,7 +46,7 @@ class Session {
         const registration = new Registration();
 
         if (registration.checkIfICanRegister(this.emailInputSignUpPanel, this.passwordInputSignUpPanel, this.confirmPasswordInputSignUpPanel, this.pSignUpPanel)) {
-            registration.register();
+            if (registration.register(this.emailInputSignUpPanel, this.passwordInputSignUpPanel, this.users, this.pSignUpPanel)) Slider.changeSlide(this.logInPanel, this.signUpPanel, this.logInInputLogInPanel, this.passwordInputLogInPanel, this.emailInputSignUpPanel, this.passwordInputSignUpPanel, this.confirmPasswordInputSignUpPanel, this.pSignUpPanel);
         }
 
     }

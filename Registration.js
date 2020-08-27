@@ -1,17 +1,39 @@
 class Registration {
     constructor() {
-
+        this.email = null;
+        this.password = null;
     }
 
-    register() {
-        console.log('user registered!');
+    register(email, password, users, pSignUpPanel) {
+        this.email = email;
+        this.password = password;
+
+        // console.log(this.email.value);
+        // console.log(this.password.value);
+        // console.log(users);
+
+        for (let i = 0; i <= users.length; i++) {
+            if (i != 0) {
+                console.log(JSON.parse(localStorage.getItem(`user_${i}`)));
+                if (JSON.parse(localStorage.getItem(`user_${i}`)).email == this.email.value) {
+                    pSignUpPanel.classList.add('activeP');
+                    pSignUpPanel.textContent = 'The specified user already exists';
+                    return false;
+                }
+            }
+        }
+
+        users.push({
+            email: this.email.value,
+            password: this.password.value,
+        });
+
+        localStorage.setItem(`user_${users.length}`, JSON.stringify(users[users.length - 1]));
+
+        return true;
     }
 
     checkIfICanRegister(emailInputSignUpPanel, passwordInputSignUpPanel, confirmPasswordSignUpPanel, pSignUpPanel) {
-        console.log(emailInputSignUpPanel.value);
-        console.log(passwordInputSignUpPanel.value);
-        console.log(confirmPasswordSignUpPanel.value);
-        console.log(emailInputSignUpPanel.value.length - emailInputSignUpPanel.value.indexOf('.'));
 
         if ((emailInputSignUpPanel.value.length >= 8 && passwordInputSignUpPanel.value.length >= 5 && confirmPasswordSignUpPanel.value.length >= 5) && (passwordInputSignUpPanel.value === confirmPasswordSignUpPanel.value) && (emailInputSignUpPanel.value.includes('@') && (emailInputSignUpPanel.value.includes('.') && (!emailInputSignUpPanel.value.endsWith('.') && !emailInputSignUpPanel.value.endsWith('@') && (emailInputSignUpPanel.value.indexOf('.') - emailInputSignUpPanel.value.indexOf('@') > 2) && (emailInputSignUpPanel.value.length - emailInputSignUpPanel.value.indexOf('.') >= 3) && (emailInputSignUpPanel.value.indexOf('@') > 1))))) {
             pSignUpPanel.classList.remove('activeP');
