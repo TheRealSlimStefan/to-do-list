@@ -21,7 +21,7 @@ class Session {
         this.createNotePanelInput = document.querySelector('div.createNoteInterface div.createNotePanel input');
         this.createNotePanelTextArea = document.querySelector('div.createNoteInterface div.createNotePanel textarea');
         this.placeToAddNewNote = document.querySelector('div.userInterfacePanel div.toDoList');
-        this.removeTaskButton = document.getElementsByClassName('div.userInterfacePanel div.toDoList div.task div.taskHead div.taskControllers i.fa-times');
+        this.removeTaskButtons = [];
         this.users = [];
         this.actualUser = null;
 
@@ -50,7 +50,6 @@ class Session {
         // console.log(this.createNotePanelInput);
         // console.log(this.createNotePanelTextArea);
         // console.log(this.placeToAddNewNote);
-        console.log(this.removeTaskButton);
 
         this.signUpButtonSignUpPanel.addEventListener('click', this.register.bind(this));
 
@@ -67,6 +66,7 @@ class Session {
         this.logOutButton.addEventListener('click', this.logOut.bind(this));
 
         this.addTaskButton.addEventListener('click', this.addTask.bind(this));
+
         this.closeAndSaveAddTaskPanelButton.addEventListener('click', this.closeAndSaveAddTaskPanel.bind(this));
     }
 
@@ -74,7 +74,6 @@ class Session {
         const registration = new Registration();
 
         if (registration.checkIfICanRegister(this.emailInputSignUpPanel, this.passwordInputSignUpPanel, this.confirmPasswordInputSignUpPanel, this.pSignUpPanel)) {
-            console.log(this.emailInputSignUpPanel)
             if (registration.register(this.emailInputSignUpPanel, this.passwordInputSignUpPanel, this.users, this.pSignUpPanel)) Slider.changeSlide(this.logInPanel, this.signUpPanel, this.logInInputLogInPanel, this.passwordInputLogInPanel, this.emailInputSignUpPanel, this.passwordInputSignUpPanel, this.confirmPasswordInputSignUpPanel, this.pSignUpPanel, this.pLogInPanel);
         }
     }
@@ -97,6 +96,8 @@ class Session {
 
     addTask() {
         Slider.openAddTaskPanel(this.addTaskPanel);
+
+        this.renderUserTasks();
     }
 
     closeAndSaveAddTaskPanel() {
@@ -107,6 +108,35 @@ class Session {
 
     renderUserTasks() {
         const notes = new Notes();
-        notes.renderNotes(this.actualUser, this.placeToAddNewNote);
+
+        this.removeTaskButtons = notes.renderNotes(this.actualUser, this.placeToAddNewNote);
+
+        console.log(this.removeTaskButtons);
+        this.removeTaskButtons.forEach(button => {
+            button.addEventListener('click', this.removeTask.bind(this));
+        })
+
+    }
+
+    removeTask(event) {
+        if (event.target.classList.contains('fa-times')) {
+            let parent = event.target.parentNode.parentNode.parentNode.parentNode;
+
+            let task = event.target.parentNode.parentNode.parentNode;
+
+            let taskTitle = event.target.parentNode.parentNode.parentNode.firstChild.firstChild.textContent;
+
+            let taskContent = event.target.parentNode.parentNode.parentNode.lastChild.textContent;
+
+            for (let i = 0; i < this.actualUser.notes.length; i++) {
+                // console.log(this.actualUser.notes[i].title);
+                // console.log(taskTitle);
+                // console.log(this.actualUser.notes[i].content);
+                // console.log(taskContent);
+                // console.log(...this.actualUser.notes);
+                if (this.actualUser.notes[i].title === taskTitle && this.actualUser.notes[i].content === taskContent) this.actualUser.notes = this.actualUser.notes.splice(i, 1);
+                // console.log(this.actualUser.notes);
+            }
+        }
     }
 }

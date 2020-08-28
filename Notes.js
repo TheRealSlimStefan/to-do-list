@@ -5,6 +5,8 @@ class Notes {
 
     renderNotes(actualUser, placeToAddNewNote) {
         if (actualUser.notes.length) {
+            let notes = [];
+
             for (let i = 0; i < actualUser.notes.length; i++) {
                 const divTask = document.createElement('div');
                 divTask.classList.add('task');
@@ -46,9 +48,13 @@ class Notes {
                 divTask.appendChild(divTaskHead);
                 divTask.appendChild(divTaskBody);
 
+                notes.push(divTask);
+
                 placeToAddNewNote.appendChild(divTask);
             }
+            return notes;
         }
+        return [];
     }
 
     addNewNote(noteTitle, noteContent, placeToAddNewNote, actualUser, users) {

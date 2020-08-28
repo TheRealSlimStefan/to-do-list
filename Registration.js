@@ -15,14 +15,17 @@ class Registration {
         // console.log(users);
 
         for (let i = 0; i <= users.length; i++) {
+            if (JSON.parse(localStorage.getItem(`user_${i}`)) === null) users.length = 0;
+
             if (i != 0) {
-                // console.log(JSON.parse(localStorage.getItem(`user_${i}`)));
+                console.log(JSON.parse(localStorage.getItem(`user_${i}`)));
                 if (JSON.parse(localStorage.getItem(`user_${i}`)).email == this.email.value) {
                     pSignUpPanel.classList.add('activeP');
                     pSignUpPanel.textContent = 'The specified user already exists';
                     return false;
                 }
             }
+
         }
 
         users.push({
