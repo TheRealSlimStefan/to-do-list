@@ -2,307 +2,596 @@
             rgba(184, 3, 254, 1); */
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
 }
 
 :root {
-    font-family: 'Lato', sans-serif;
-    font-size: 16px;
+  font-size: 16px;
+}
+
+input {
+  font-size: 1rem;
+}
+
+textarea {
+  font-size: 1rem;
 }
 
 /* panel */
 
 div.panel {
-    position: fixed;
-    top: 50%;
-    left: -50%;
-    transform: translate(-50%, -50%);
-    width: 80vw;
-    transition: .5s;
+  position: fixed;
+  top: 50%;
+  left: -50%;
+  transform: translate(-50%, -50%);
+  width: 80vw;
+  transition: 0.5s;
 }
 
 div.panel.activeWindow {
-    top: 50%;
-    left: 50%;
+  top: 50%;
+  left: 50%;
 }
 
 div.panel h1 {
-    margin: 8vh;
-    text-align: center;
-    color: #B803FE;
+  margin: 8vh;
+  text-align: center;
+  color: #b803fe;
 }
 
 div.panel h1 span {
-    text-transform: uppercase;
-    color: black;
+  text-transform: uppercase;
+  color: black;
 }
 
 div.panel input {
-    display: block;
-    margin-bottom: 1.5vh;
-    outline: none;
-    border: none;
-    border-bottom: 1px solid grey;
-    padding: 10px;
-    width: 100%;
-    transition: 0.4s;
-    font-size: 16px;
+  display: block;
+  margin-bottom: 1.5vh;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid grey;
+  padding: 10px;
+  width: 100%;
+  transition: 0.4s;
+  font-size: 16px;
 }
 
 div.panel input:focus {
-    border-bottom: 1px solid rgba(184, 3, 254, 0.8);
+  border-bottom: 1px solid rgba(184, 3, 254, 0.8);
 }
 
 div.panel p {
-    height: 0;
-    line-height: 8vh;
-    text-align: center;
-    color: red;
-    transition: .3s;
+  height: 0;
+  line-height: 8vh;
+  text-align: center;
+  color: red;
+  transition: 0.3s;
 }
 
 div.panel p.activeP {
-    height: 8vh;
+  height: 8vh;
 }
 
 div.panel button {
-    display: block;
-    float: left;
-    margin-top: 4vh;
-    margin-bottom: 8vh;
-    padding: 5px;
-    width: 48%;
-    background-color: white;
-    border: 1px solid #B803FE;
-    color: #B803FE;
-    transition: .4s;
-    font-size: 16px;
-    cursor: pointer;
+  display: block;
+  float: left;
+  margin-top: 4vh;
+  margin-bottom: 8vh;
+  padding: 5px;
+  width: 48%;
+  background-color: white;
+  border: 1px solid #b803fe;
+  color: #b803fe;
+  transition: 0.4s;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 div.panel button:hover {
-    background-color: #B803FE;
-    color: white;
+  background-color: #b803fe;
+  color: white;
 }
 
 div.panel button:focus {
-    outline: none;
+  outline: none;
 }
 
 div.panel button:nth-of-type(2) {
-    float: right;
+  float: right;
 }
 
 /* userInterface */
 
 div.userInterfacePanel {
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-height: 100vh;
-    width: 100%;
-    background-color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  width: 100%;
+  background-color: black;
 }
 
+/* div.userInterfacePanel.activeInterface {
+  top: 0;
+  left: 0;
+} */
+
 div.userInterfacePanel div.container {
-    margin: 0 auto;
-    width: 85%;
-    padding: 10vh 0 4vh;
+  margin: 0 auto;
+  width: 85%;
+  max-width: 1024px;
+  padding: 10vh 0 4vh;
 }
 
 div.userInterfacePanel div.container div {
-    position: relative;
+  position: relative;
 }
 
 div.userInterfacePanel div.container div.button {
-    float: left;
-    width: 25%;
-    padding: 2vh 0;
+  float: left;
+  width: 25%;
+  padding: 2vh 0;
 }
 
 div.userInterfacePanel div.container div.search {
-    float: right;
-    padding: 4vh 0;
-    width: 75%;
+  float: right;
+  padding: 4vh 0;
+  width: 75%;
 }
 
 div.userInterfacePanel div button {
-    display: block;
-    /* margin: 0 auto; */
-    width: 10vh;
-    height: 10vh;
-    border-radius: 50%;
-    border: 2px solid #B803FE;
-    background-color: #B803FE;
-    font-size: 16px;
-    font-weight: 900;
-    color: white;
+  display: block;
+  /* margin: 0 auto; */
+  width: 10vh;
+  height: 10vh;
+  border-radius: 50%;
+  border: 2px solid #b803fe;
+  background-color: #b803fe;
+  font-size: 16px;
+  font-weight: 900;
+  color: white;
 }
 
 div.userInterfacePanel div input {
-    display: block;
-    padding: 0px 10px;
-    width: 100%;
-    height: 6vh;
+  display: block;
+  padding: 0px 10px;
+  width: 100%;
+  height: 6vh;
 }
 
 div.userInterfacePanel div.toDoList {
-    padding: 4vh 5vw 0;
+  padding: 4vh 5vw 0;
+  max-width: 1024px;
+  margin: 0 auto;
 }
 
 div.userInterfacePanel div.toDoList div.task {
-    width: 100%;
-    color: white;
-    margin-bottom: 5vh;
+  width: 100%;
+  color: white;
+  margin-bottom: 5vh;
 }
 
 div.userInterfacePanel div.toDoList div.task div.taskHead {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border: 2px solid #B803FE;
-    padding: 2vh 2vw;
-    background-color: #B803FE;
-    font-size: 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border: 2px solid #b803fe;
+  padding: 2vh 2vw;
+  background-color: #b803fe;
+  font-size: 20px;
 }
 
 div.userInterfacePanel div.toDoList div.task div.taskHead div {
-    float: left;
+  float: left;
 }
 
 div.userInterfacePanel div.toDoList div.task div.taskHead div.taskName {
-    width: 70%;
-    padding-left: 2vw;
+  width: 70%;
+  padding-left: 2vw;
 }
 
 div.userInterfacePanel div.toDoList div.task div.taskHead div.taskControllers {
-    width: 30%;
-    text-align: right;
+  width: 30%;
+  text-align: right;
+}
+
+div.userInterfacePanel
+  div.toDoList
+  div.task
+  div.taskHead
+  div.taskControllers
+  i {
+  cursor: pointer;
 }
 
 div.userInterfacePanel div.toDoList div.task div.taskBody {
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border: 2px solid #B803FE;
-    border-top: none;
-    padding: 2vh 5vw 5vh;
-    background-color: rgb(245, 245, 245);
-    color: black;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border: 2px solid #b803fe;
+  border-top: none;
+  padding: 2vh 5vw 5vh;
+  background-color: rgb(245, 245, 245);
+  color: black;
 }
 
-@media(orientation: landscape) {
-    div.panel {
-        width: 60vw;
-    }
+/* create note panel */
 
-    div.panel h1 {
-        margin: 12vh;
-    }
+div.createNoteInterface {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+}
 
-    div.panel h1 span {
-        text-transform: uppercase;
-        color: black;
-    }
+div.createNoteInterface.activeInterface {
+  display: block;
+}
 
-    div.panel input {
-        margin-bottom: 2.5vh;
-    }
+div.createNoteInterface div.createNotePanel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  width: 80%;
+  height: 80vh;
+  background-color: white;
+}
 
-    div.panel button {
-        margin-top: 6vh;
-        margin-bottom: 12vh;
-    }
+div.createNoteInterface div.createNotePanel button {
+  position: absolute;
+  top: 0%;
+  left: 100%;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 2px solid #b803fe;
+  width: 5vh;
+  height: 5vh;
+  background-color: #b803fe;
+  font-weight: 900;
+  color: white;
+}
+
+div.createNoteInterface div.createNotePanel input {
+  display: block;
+  width: 100%;
+  height: 20%;
+  margin: 5vh 0 0;
+  border: none;
+  padding: 20px;
+  outline: none;
+  font-size: 1.3rem;
+}
+
+div.createNoteInterface div.createNotePanel input:focus {
+  box-shadow: 0 0 5px 2px #b803fe;
+}
+
+div.createNoteInterface div.createNotePanel textarea {
+  display: block;
+  width: 100%;
+  height: calc(80% - 5vh);
+  margin: 5vh 0;
+  border: none;
+  padding: 20px;
+  outline: none;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+div.createNoteInterface div.createNotePanel textarea:focus {
+  box-shadow: 0 0 5px 2px #b803fe;
+}
+
+/* div.createNotePanel.activeInterface {
+  position: absolute;
+  top: 0;
+  left: 0;
+} */
+
+@media (orientation: landscape) {
+  div.panel {
+    width: 60vw;
+  }
+
+  div.panel h1 {
+    margin: 12vh;
+  }
+
+  div.panel h1 span {
+    text-transform: uppercase;
+    color: black;
+  }
+
+  div.panel input {
+    margin-bottom: 2.5vh;
+  }
+
+  div.panel button {
+    margin-top: 6vh;
+    margin-bottom: 12vh;
+  }
+
+  div.createNoteInterface div.createNotePanel button {
+    position: absolute;
+    top: 0%;
+    left: 100%;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 2px solid #b803fe;
+    width: 5vw;
+    height: 5vw;
+    background-color: #b803fe;
+    font-weight: 900;
+    color: white;
+  }
+
+  div.createNoteInterface div.createNotePanel input {
+    height: 25%;
+  }
+
+  div.createNoteInterface div.createNotePanel textarea {
+    height: calc(75% - 5vh);
+  }
+
+  /* interface */
+
+  div.userInterfacePanel div.container {
+    width: 70%;
+    padding: 10vw 0 4vw;
+  }
+
+  div.userInterfacePanel div.container div.button {
+    width: 20%;
+    padding: 2vw 0;
+  }
+
+  div.userInterfacePanel div.container div.search {
+    padding: 4vw 0;
+    width: 80%;
+  }
+
+  div.userInterfacePanel div button {
+    width: 10vw;
+    height: 10vw;
+    font-size: 16px;
+  }
+
+  div.userInterfacePanel div input {
+    height: 6vw;
+  }
+
+  div.userInterfacePanel div.toDoList {
+    padding: 4vw 5vw 0;
+  }
+
+  div.userInterfacePanel div.toDoList div.task {
+    width: 47%;
+    float: left;
+    margin: 0 calc(3% / 2) 5vw;
+  }
+
+  div.userInterfacePanel div.toDoList div.task:nth-of-type(even) {
+    float: right;
+  }
+
+  div.userInterfacePanel div.toDoList div.task div.taskHead {
+    padding: 2vw 2vh;
+    font-size: 20px;
+  }
+
+  div.userInterfacePanel div.toDoList div.task div.taskHead div.taskName {
+    width: 70%;
+    padding-left: 2vh;
+  }
+
+  div.userInterfacePanel
+    div.toDoList
+    div.task
+    div.taskHead
+    div.taskControllers {
+    width: 30%;
+  }
+
+  div.userInterfacePanel div.toDoList div.task div.taskBody {
+    padding: 2vw 5vh 5vw;
+    color: black;
+  }
 }
 
 @media (min-width: 360px) {
-    :root {
-        font-size: 18px;
-    }
+  :root {
+    font-size: 18px;
+  }
 
-    div.panel input {
-        font-size: 18px;
-    }
+  div.panel input {
+    font-size: 18px;
+  }
 
-    div.panel button {
-        font-size: 18px;
-    }
+  div.panel button {
+    font-size: 18px;
+  }
+
+  /* interface */
+
+  div.userInterfacePanel div button {
+    font-size: 26px;
+  }
+
+  div.userInterfacePanel div input {
+    font-size: 18px;
+  }
+
+  div.userInterfacePanel div.toDoList div.task div.taskHead {
+    font-size: 22px;
+  }
 }
 
 @media (min-width: 400px) {
-    :root {
-        font-size: 20px;
-    }
+  :root {
+    font-size: 20px;
+  }
 
-    div.panel input {
-        font-size: 20px;
-    }
+  div.panel input {
+    font-size: 20px;
+  }
 
-    div.panel button {
-        font-size: 20px;
-    }
+  div.panel button {
+    font-size: 20px;
+  }
+
+  /* interface */
+
+  div.userInterfacePanel div button {
+    font-size: 26px;
+  }
+
+  div.userInterfacePanel div input {
+    font-size: 18px;
+  }
+
+  div.userInterfacePanel div.toDoList div.task div.taskHead {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 570px) {
+  /* interface */
+
+  div.userInterfacePanel div button {
+    font-size: 28px;
+  }
+
+  div.userInterfacePanel div input {
+    font-size: 20px;
+  }
+
+  div.userInterfacePanel div.toDoList div.task div.taskHead {
+    font-size: 24px;
+  }
 }
 
 @media (min-width: 768px) {
-    :root {
-        font-size: 24px;
-    }
+  :root {
+    font-size: 24px;
+  }
 
-    div.panel {
-        width: 70vw;
-    }
+  div.panel {
+    width: 70vw;
+  }
 
-    div.panel input {
-        font-size: 24px;
-    }
+  div.panel input {
+    font-size: 24px;
+  }
 
-    div.panel button {
-        font-size: 24px;
-        padding: 10px;
-    }
+  div.panel button {
+    font-size: 24px;
+    padding: 10px;
+  }
+
+  /* interface */
+
+  div.userInterfacePanel div button {
+    font-size: 30px;
+  }
+
+  div.userInterfacePanel div input {
+    font-size: 22px;
+  }
+
+  div.userInterfacePanel div.toDoList div.task {
+    width: 47%;
+    float: left;
+    margin: 0 calc(3% / 2) 5vw;
+  }
+
+  div.userInterfacePanel div.toDoList div.task:nth-of-type(even) {
+    float: right;
+  }
+
+  div.userInterfacePanel div.toDoList div.task div.taskHead {
+    font-size: 26px;
+  }
 }
 
 @media (min-width: 1024px) {
-    :root {
-        font-size: 26px;
-    }
+  :root {
+    font-size: 26px;
+  }
 
-    div.panel {
-        width: 60vw;
-    }
+  div.panel {
+    width: 60vw;
+  }
 
-    div.panel input {
-        font-size: 26px;
-    }
+  div.panel input {
+    font-size: 26px;
+  }
 
-    div.panel button {
-        font-size: 26px;
-    }
+  div.panel button {
+    font-size: 26px;
+  }
+
+  /* interface */
+
+  div.userInterfacePanel div.container {
+    width: 70%;
+  }
+
+  div.userInterfacePanel div button {
+    font-size: 50px;
+  }
+
+  div.userInterfacePanel div input {
+    font-size: 28px;
+  }
+
+  div.userInterfacePanel div.toDoList div.task {
+    width: 47%;
+    float: left;
+    margin: 0 calc(3% / 2) 5vw;
+  }
+
+  div.userInterfacePanel div.toDoList div.task:nth-of-type(even) {
+    float: right;
+  }
+
+  div.userInterfacePanel div.toDoList div.task div.taskHead {
+    font-size: 28px;
+  }
 }
 
 @media (min-width: 1366px) {
-    :root {
-        font-size: 30px;
-    }
+  :root {
+    font-size: 30px;
+  }
 
-    div.panel {
-        width: 50vw;
-    }
+  div.panel {
+    width: 50vw;
+  }
 
-    div.panel input {
-        border-bottom: 2px solid grey;
-        padding: 15px;
-        font-size: 30px;
-    }
+  div.panel input {
+    border-bottom: 2px solid grey;
+    padding: 15px;
+    font-size: 30px;
+  }
 
-    div.panel input:focus {
-        border-bottom: 2px solid rgba(184, 3, 254, 0.8);
-    }
+  div.panel input:focus {
+    border-bottom: 2px solid rgba(184, 3, 254, 0.8);
+  }
 
-    div.panel button {
-        font-size: 30px;
-        padding: 15px;
-    }
+  div.panel button {
+    font-size: 30px;
+    padding: 15px;
+  }
 }
 
 /* Log in panel */
@@ -311,7 +600,7 @@ div.userInterfacePanel div.toDoList div.task div.taskBody {
 
 /* clearfix */
 .clearfix::after {
-    content: "";
-    display: block;
-    clear: both;
+  content: "";
+  display: block;
+  clear: both;
 }
