@@ -2,11 +2,13 @@ class Registration {
     constructor() {
         this.email = null;
         this.password = null;
+        this.notes = null;
     }
 
     register(email, password, users, pSignUpPanel) {
         this.email = email;
         this.password = password;
+        this.notes = [];
 
         // console.log(this.email.value);
         // console.log(this.password.value);
@@ -26,7 +28,10 @@ class Registration {
         users.push({
             email: this.email.value,
             password: this.password.value,
+            notes: this.notes,
         });
+
+        console.log(users);
 
         localStorage.setItem(`user_${users.length}`, JSON.stringify(users[users.length - 1]));
 

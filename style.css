@@ -108,16 +108,27 @@ div.panel button:nth-of-type(2) {
 div.userInterfacePanel {
   position: absolute;
   top: 0;
-  left: 0;
+  left: -100%;
   min-height: 100vh;
   width: 100%;
   background-color: black;
+  transition: 0.5s;
 }
 
-/* div.userInterfacePanel.activeInterface {
+div.userInterfacePanel.activeInterface {
   top: 0;
   left: 0;
-} */
+}
+
+div.userInterfacePanel i.fa.fa-sign-out {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  font-size: 1.1rem;
+  color: white;
+  cursor: pointer;
+  transition: 0.5s;
+}
 
 div.userInterfacePanel div.container {
   margin: 0 auto;
@@ -153,6 +164,7 @@ div.userInterfacePanel div button {
   font-size: 16px;
   font-weight: 900;
   color: white;
+  cursor: pointer;
 }
 
 div.userInterfacePanel div input {
@@ -197,12 +209,7 @@ div.userInterfacePanel div.toDoList div.task div.taskHead div.taskControllers {
   text-align: right;
 }
 
-div.userInterfacePanel
-  div.toDoList
-  div.task
-  div.taskHead
-  div.taskControllers
-  i {
+div.userInterfacePanel div.toDoList div.task div.taskHead div.taskControllers i {
   cursor: pointer;
 }
 
@@ -258,6 +265,7 @@ div.createNoteInterface div.createNotePanel button {
   background-color: #b803fe;
   font-weight: 900;
   color: white;
+  cursor: pointer;
 }
 
 div.createNoteInterface div.createNotePanel input {
@@ -394,11 +402,7 @@ div.createNoteInterface div.createNotePanel textarea:focus {
     padding-left: 2vh;
   }
 
-  div.userInterfacePanel
-    div.toDoList
-    div.task
-    div.taskHead
-    div.taskControllers {
+  div.userInterfacePanel div.toDoList div.task div.taskHead div.taskControllers {
     width: 30%;
   }
 

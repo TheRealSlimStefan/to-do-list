@@ -18,10 +18,29 @@ class Slider {
         }
     }
 
-    static openActualUserList(logInPanel, logInInputLogInPanel, passwordInputLogInPanel, pLogInPanel) {
+    static openActualUserList(logInPanel, logInInputLogInPanel, passwordInputLogInPanel, pLogInPanel, userInterfacePanel) {
         logInPanel.classList.remove('activeWindow');
         logInInputLogInPanel.value = '';
         passwordInputLogInPanel.value = '';
         pLogInPanel.textContent = '';
+        userInterfacePanel.classList.add('activeInterface');
+    }
+
+    static backToLogInPanel(logInPanel, userInterfacePanel) {
+        console.log(logInPanel);
+        console.log(userInterfacePanel);
+        logInPanel.classList.add('activeWindow');
+        // logInInputLogInPanel.value = '';
+        // passwordInputLogInPanel.value = '';
+        // pLogInPanel.textContent = '';
+        userInterfacePanel.classList.remove('activeInterface');
+    }
+
+    static openAddTaskPanel(addTaskPanel) {
+        addTaskPanel.classList.add('activeInterface');
+    }
+
+    static closeAddTaskPanel(addTaskPanel) {
+        addTaskPanel.classList.remove('activeInterface');
     }
 }
